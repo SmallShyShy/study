@@ -1,0 +1,6 @@
+1、进入 dubbo-admin-develop 根目录  使用 mvn package -Dmaven.test.skip=true  打包
+2、打包成功后doubbo-server的target目录下会生成jar包
+3、启动zookeeper
+4、进入jar包目录后 java -jar xxx.jar 启动项目
+5、localhost:7070 端口号在dubbo-server 在application.properties中使用
+5、帐号 root 密码 root
