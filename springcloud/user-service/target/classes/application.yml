@@ -1,0 +1,28 @@
+server:
+  port: 9090
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/develop_test?verifyServerCertificate=false&useSSL=false
+    password: 123456
+    username: root
+  application:
+    name: user-server
+
+mybatis:
+  type-aliases-package: com.study.cloud.model
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8080/eureka
+  instance:
+    #更倾向用id 而不是hostname
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    #每5秒检测一次 此服务是否存活 默认30s
+    lease-renewal-interval-in-seconds: 5
+    #服务失效时间 失效后可以配置eureka剔除服务
+    lease-expiration-duration-in-seconds: 5
+
+
+

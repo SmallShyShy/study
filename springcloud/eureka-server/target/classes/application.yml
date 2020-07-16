@@ -1,0 +1,23 @@
+server:
+  #port有指定用指定的 没有指定用8080
+  port: ${port:8080}
+spring:
+  application:
+    name: eureka-server
+
+eureka:
+  instance:
+    hostname: 127.0.0.1
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
+    #不注册自己
+    register-with-eureka: false
+    #不拉取自己
+    fetch-registry: false
+  server:
+    #服务失效剔除时间 60s
+    eviction-interval-timer-in-ms: 60000
+    #关闭自我保护模式 关闭后不会出现红字提醒 剔除时间到了就会剔除（默认打开，建议关闭）
+    enable-self-preservation: false
+

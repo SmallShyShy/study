@@ -1,0 +1,35 @@
+server:
+  port: 9092
+spring:
+  application:
+    name: consumer-demo
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8080/eureka
+    #每10s 拉取一次服务  默认30s
+    registry-fetch-interval-seconds: 10
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2000
+      circuitBreaker:
+        errorThresholdPercentage: 50 #促发熔断错误比例阀值 请求错误超过50% 就降级
+        sleepWindowInMilliseconds: 10000 #熔断休眠时间 10s 默认5s
+        requestVolumeThreshold: 10 #熔断触发最小请求次数 默认20
+
+#feign 内置的robbin配置
+ribbon:
+  ConnectTimeout: 1000 #连接超时时长
+  ReadTimeout: 2000 #数据通信超时时长
+  MaxAutoRetries: 0 #当前服务器的通信时长
+  MaxAutoRetriesNextServer: 0 #重试多少次服务
+  OkToRetryOnAllOperations: false
+
+userServer:
+  url: http://localhost:9090
+
