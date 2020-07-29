@@ -6,16 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="user-service" />
-        <module name="consumer-demo" />
+        <module name="config-server" />
         <module name="eureka-server" />
+        <module name="consumer-demo" />
+        <module name="springcloud-gateway" />
+        <module name="user-service" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="config-server" options="-parameters" />
       <module name="consumer-demo" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
+      <module name="springcloud-gateway" options="-parameters" />
       <module name="user-service" options="-parameters" />
     </option>
   </component>

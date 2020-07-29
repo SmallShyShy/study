@@ -1,0 +1,25 @@
+server:
+  port: 8889
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/zhou_jiale/spring-cloud.git
+  #以下rabbitmq均为默认值 可以不配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8080/eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh #访问actuator/bus-refresh 可以刷新git上的数据到本地

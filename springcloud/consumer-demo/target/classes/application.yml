@@ -30,6 +30,12 @@ ribbon:
   MaxAutoRetriesNextServer: 0 #重试多少次服务
   OkToRetryOnAllOperations: false
 
+#开启feign内置熔断
+feign:
+  hystrix:
+    enabled: true
+
+
 userServer:
   url: http://localhost:9090
 

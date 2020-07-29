@@ -1,0 +1,44 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        #路由id，可以为任意
+        - id: user-service-route
+            #-----------1-------------
+            #写死路由到哪个地址
+            # uri: http://127.0.0.1:9090
+            #lb loadbance
+            # uri: lb://user-server #找不到服务 503
+            #路由断言 可以匹配映射路径
+            # predicates:
+          #   - Path=/user/**
+          #-----------自动添加前缀-------------
+      #    uri: lb://user-server #找不到服务 503
+            #路由断言 可以匹配映射路径
+        #  predicates:
+         #   - Path=/**
+        #  filters:
+        #    - PrefixPath=/user #路由后的路劲中自动添加user
+         #-----------自动添加前缀-------------
+          uri: lb://user-server #找不到服务 503
+          #路由断言 可以匹配映射路径
+          predicates:
+            - Path=/api/user/**
+          filters:
+            - StripPrefix=1 #路由后的路劲中自动去除 1代表去除一层路劲
+            - MyParamXX=name  #过滤请求参数 获取参数中 ?name= 的值
+      default-filters: #在消息头中添加信息
+        - AddResponseHeader=key1,value1
+        - AddResponseHeader=key2,value2
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8080/eureka
+  instance:
+    #更倾向用id 而不是hostname
+    prefer-ip-address: true

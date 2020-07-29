@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    config:
+      #仓库中的 user-dev.yml
+      name: user
+      profile: dev
+      #仓库中的分支
+      label: master
+      #发现配置中心
+      discovery:
+        enabled: true
+        service-id: config-server
+  #以下rabbitmq均为默认值 可以不配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8080/eureka
