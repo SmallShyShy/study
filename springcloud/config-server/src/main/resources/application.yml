@@ -22,4 +22,4 @@ management:
   endpoints:
     web:
       exposure:
-        include: bus-refresh #访问actuator/bus-refresh 可以刷新git上的数据到本地
+        include: bus-refresh #访问localhost:8889/actuator/bus-refresh 可以刷新git上的数据到本地
