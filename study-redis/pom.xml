@@ -21,7 +21,7 @@
         <druid.version>1.0.18</druid.version>
         <jedis.version>3.1.0</jedis.version>
         <mysql.version>8.0.17</mysql.version>
-        <fasejson.version>1.2.59</fasejson.version>
+        <fasejson.version>1.2.83</fasejson.version>
         <lombok.version>1.18.12</lombok.version>
     </properties>
 
